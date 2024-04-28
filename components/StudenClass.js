@@ -6,8 +6,8 @@ firstName='carlos', lastName='cordova', age=25, subject=',math', and grade=10. T
 information. */
 
 export default class Student {
-  constructor(id,name,lastName,age,subjects,grade) {
-    this.id = id;
+  constructor(name,lastName,age,subjects,grade) {
+    
     this.name = name;
     this.lastName = lastName;
     this.age = age;
