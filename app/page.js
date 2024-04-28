@@ -1,10 +1,12 @@
 import React from 'react'
 import Link from 'next/link'
+
 const Home = () => (
-  <div>
-    <h1>Studen Dashboard</h1>
-    <Link href='/addStudent' >Register a Student</Link>
-  </div>
+
+  <main>
+    <h1>Welcome To Student Dashboard</h1>
+  </main>
+
 )
 
 export default Home
