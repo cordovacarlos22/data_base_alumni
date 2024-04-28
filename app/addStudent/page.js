@@ -1,20 +1,20 @@
 'use client'
 
-import Student from '@/components/StudenClass';
+import Register from '@/components/RegisterStudent';
 import React, { useState } from 'react'
 
 
 
 
 const AddStudent = () => {
-
+  let id = 1;
 
   let [name, setName] = useState('');
   const handleRegister = (e) => {
     
-    let student1 = new Student(1, name, 'cordova', 25, ',math', 10)
-    student1.printStudent();
-    setName("")
+    let student1 = new Register( name, 'cordova', 25)
+    student1.printRegister();
+    setName("");
     
   }
 
