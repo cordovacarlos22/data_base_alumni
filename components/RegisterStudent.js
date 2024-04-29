@@ -1,13 +1,15 @@
 import Student from "./StudenClass";
 
 
-export default class Register extends  Student{
+export default class Register extends Student{
+  
   constructor(id, name, lastName, age) {
     super(id, name, lastName, age)
   }
   
+  
   printRegister() {
-    let students = [];
+    let students = []
     students = JSON.parse(localStorage.getItem('studentDB')) || [];
     students.push({ name: this.name, lastName: this.lastName, age: this.age })
     localStorage.setItem('studentDB', JSON.stringify(students));
@@ -17,4 +19,12 @@ export default class Register extends  Student{
     console.log('studentDB', localStorage.getItem('studentDB'));
   }
 
+  getAllStudents() {
+    
+    
+    
+    console.log(students)
+  }
+
 }
+
