@@ -10,10 +10,10 @@ Apellidos
 Edad
 Materias inscritas
 Calificaciones
-(Esta es la clase base, si quieren agregarle mas datos son libres de hacerla tan completa como quieran)
+(Esta es la clase base, si quieren agregarle mas datos son libres de hacerla tan completa como quieran) (listo)
 
 2.- Alta de alumnos
-Una vez creada la clase desde su sitio, deberán dar de alta alumnos, por defecto lo único que deben pedir como requisito al inicio es nombre, apellidos, edad.
+Una vez creada la clase desde su sitio, deberán dar de alta alumnos, por defecto lo único que deben pedir como requisito al inicio es nombre, apellidos, edad. (listo)
 
 3.- Después deberas crear funciones y vistas que les ayuden a hacer lo siguiente:
 Inscribir un alumno a una clase.
