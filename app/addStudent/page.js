@@ -13,9 +13,11 @@ const AddStudent = () => {
   let [lastName, setLastName] = useState('');
   let [age, setAge] = useState('');
   const handleRegister = (e) => {
-
+    // e.preventDefault();
     let newStudent = new Register(name, lastName, age) // creates AddStudent instance
-    newStudent.printRegister();
+    newStudent.registerStudent();
+    newStudent.printStudent();
+    newStudent.getAllStudents();
     setName("");// clear the  input name
     setLastName(""); // clear the last name input 
     setAge(""); //clear the age input
@@ -59,7 +61,7 @@ const AddStudent = () => {
             onChange={e => setAge(e.target.value)}
             name='age' id='age' placeholder='Enter Your Age'></input>
         </label>
-        <button className='bg-white text-blue-500  p-4 rounded-lg hover:text-blue-400 ' onClick={() => { handleRegister() }} ><span className='hover:'>Register Student</span></button>
+        <button className='bg-white text-blue-500  p-4 rounded-lg hover:text-blue-400 ' onClick={() => { handleRegister() }} ><span className=''>Register Student</span></button>
       </form>
       
     </div>
