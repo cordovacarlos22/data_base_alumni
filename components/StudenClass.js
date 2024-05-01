@@ -6,17 +6,49 @@ firstName='carlos', lastName='cordova', age=25, subject=',math', and grade=10. T
 information. */
 
 export default class Student {
-  constructor(name,lastName,age,subjects,grade) {
+  constructor(name,lastName,age) {
     
     this.name = name;
     this.lastName = lastName;
     this.age = age;
-    this.subjects = subjects;
-    this.grade = grade;
+    this.subjects = [];
+    this.grade = [];
   }
 
   printStudent() {
     alert(`Student ${this.name} has been register`)
   }
-}
+
+  //add a student to array of students
+  registerStudent() {
+    let students = [];
+    students = JSON.parse(localStorage.getItem('studentDB')) || [];
+    students.push({ name: this.name, lastName: this.lastName, age: this.age })
+    localStorage.setItem('studentDB', JSON.stringify(students));
+
+
+    // console.log('student registrado ' + this.name + " " + this.lastName + " " + this.age);
+    // console.log('studentDB', localStorage.getItem('studentDB'));
+  }
+
+  printStudent() {
+    alert(`Student ${this.name} has been register`)
+  }
+
+  getAllStudents() {
+    let students = [];
+    students = JSON.parse(localStorage.getItem('studentDB')) || [];
+    console.log(students);
+  }
+
+  addSubject(subject) {
+    this.subjects.push(subject);
+  }
+
+  addGrade(grade) {
+    this.grade.push(grade);
+  }
+
+};
+
 
