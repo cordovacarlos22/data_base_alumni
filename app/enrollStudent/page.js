@@ -16,7 +16,7 @@ const AddStudent = () => {
   const handleRegister = (e) => {
     // e.preventDefault();
     let newStudent = new Student(name, lastName, age) // creates AddStudent instance
-    newStudent.registerStudent();
+    newStudent.enrollStudent();
     newStudent.printStudent();
     newStudent.getAllStudents();
     setName("");// clear the  input name
@@ -29,7 +29,7 @@ const AddStudent = () => {
 
   return (
     <div className='flex flex-col justify-center items-center m-auto  bg-blue-500  rounded-lg text-white p-6'>
-      <h1 className=' font-bold'>Fill form to register new <span className=' font-extrabold'>Student</span></h1>
+      <h1 className=' font-bold'>Fill form to enroll a <span className=' font-extrabold'>Student</span></h1>
       <form className=' flex flex-col p-4  justify-center text-center items-center  gap-4  m-4'>
         <label className='text-lg ' htmlFor="name">
           Name : <br></br>
@@ -62,7 +62,7 @@ const AddStudent = () => {
             onChange={e => setAge(e.target.value)}
             name='age' id='age' placeholder='Enter Your Age'></input>
         </label>
-        <button className='bg-white text-blue-500  p-4 rounded-lg hover:text-blue-400 ' onClick={() => { handleRegister() }} ><span className=''>Register Student</span></button>
+        <button className='bg-white text-blue-500  p-4 rounded-lg hover:text-blue-400 ' onClick={() => { handleRegister() }} ><span className=''>Enroll Student</span></button>
       </form>
       
     </div>
