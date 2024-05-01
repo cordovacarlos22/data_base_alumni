@@ -6,8 +6,8 @@ const Nav = () => {
     link: '/'
   },
   {
-    name: 'Register Student',
-    link: '/register'
+    name: 'Student Enrollment',
+    link: '/enrollStudent'
   },
   {
     name: 'Enroll Student Subject',
