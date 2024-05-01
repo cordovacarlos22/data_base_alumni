@@ -1,6 +1,7 @@
 'use client'
 
 import Register from '@/components/RegisterStudent';
+import Student from '@/components/StudenClass';
 import React, { useState } from 'react'
 
 
@@ -14,7 +15,7 @@ const AddStudent = () => {
   let [age, setAge] = useState('');
   const handleRegister = (e) => {
     // e.preventDefault();
-    let newStudent = new Register(name, lastName, age) // creates AddStudent instance
+    let newStudent = new Student(name, lastName, age) // creates AddStudent instance
     newStudent.registerStudent();
     newStudent.printStudent();
     newStudent.getAllStudents();
