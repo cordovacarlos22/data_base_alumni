@@ -26,7 +26,7 @@ export default class Student {
 
 
 
-  printStudent() {
+  alertStudentEnrollment() {
     alert(`Student ${this.name} has been register`)
   }
 
