@@ -10,9 +10,13 @@ const Nav = () => {
     link: '/register'
   },
   {
-    name: 'Add Subject',
-    link: '/addSubject'
-  }
+    name: 'Enroll Student Subject',
+    link: '/enrollStudentSubject'
+    },
+    {
+      name: 'Grade Student',
+      link: '/gradeStudent'
+    }
 
   ]
   return (
