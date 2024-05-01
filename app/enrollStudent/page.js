@@ -7,21 +7,28 @@ import React, { useState } from 'react'
 
 
 
-const AddStudent = () => {
+const EnrollStudent = () => {
 
 
   let [name, setName] = useState('');
   let [lastName, setLastName] = useState('');
   let [age, setAge] = useState('');
   const handleRegister = (e) => {
-    // e.preventDefault();
-    let newStudent = new Student(name, lastName, age) // creates AddStudent instance
-    newStudent.enrollStudent();
-    newStudent.printStudent();
-    newStudent.getAllStudents();
-    setName("");// clear the  input name
-    setLastName(""); // clear the last name input 
-    setAge(""); //clear the age input
+
+    if (name === '' || lastName === '' || age === '' && age < 0 ) {
+      alert('Please Fill Entire Form(make sure you have entered a name,last name and age)');
+      return;
+    } else {
+      // e.preventDefault();
+      let newStudent = new Student(name, lastName, age) // creates EnrollStudent instance
+      newStudent.enrollStudent();
+      newStudent.alertStudentEnrollment();
+      newStudent.getAllStudents();
+      setName("");// clear the  input name
+      setLastName(""); // clear the last name input 
+      setAge(""); //clear the age input
+    }
+
 
   }
 
@@ -41,7 +48,7 @@ const AddStudent = () => {
             onChange={e => setName(e.target.value)}
             name='name' id='name' placeholder='Enter Your Name'></input>
         </label>
-        <label  className="text-lg" htmlFor="lastName">
+        <label className="text-lg" htmlFor="lastName">
           Last Name :<br></br>
           <input
             required
@@ -57,16 +64,16 @@ const AddStudent = () => {
             type='number'
             className='ml-2  text-blue-500  p-2 rounded-lg '
             required
-
             value={age}
+            min="1"
             onChange={e => setAge(e.target.value)}
             name='age' id='age' placeholder='Enter Your Age'></input>
         </label>
         <button className='bg-white text-blue-500  p-4 rounded-lg hover:text-blue-400 ' onClick={() => { handleRegister() }} ><span className=''>Enroll Student</span></button>
       </form>
-      
+
     </div>
   )
 }
 
-export default AddStudent;
+export default EnrollStudent;
