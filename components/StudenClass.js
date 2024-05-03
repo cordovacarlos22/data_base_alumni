@@ -16,6 +16,7 @@ export default class Student {
 
   // method to  enroll a student 
   enrollStudent() {
+    
     let students = [];
     students = JSON.parse(localStorage.getItem('students')) || [];
     students.push({ name: this.name, lastName: this.lastName, age: this.age });
