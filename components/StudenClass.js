@@ -6,12 +6,14 @@ firstName='carlos', lastName='cordova', age=25, subject=',math', and grade=10. T
 information. */
 
 export default class Student {
-  constructor(name, lastName, age) {
+  constructor(id, name, lastName, age, subjects = [], grades = []) 
+    {
+    this.id = id;
     this.name = name;
     this.lastName = lastName;
     this.age = age;
-    this.subjects = [];
-    this.grades = [];
+    this.subjects = subjects;
+    this.grades = grades;
   }
 
   // method to  enroll a student 
@@ -19,7 +21,7 @@ export default class Student {
     
     let students = [];
     students = JSON.parse(localStorage.getItem('students')) || [];
-    students.push({ name: this.name, lastName: this.lastName, age: this.age });
+    students.push({id:this.id, name: this.name, lastName: this.lastName, age: this.age });
     localStorage.setItem('students', JSON.stringify(students));
     // console.log('student registrado ' + this.name + " " + this.lastName + " " + this.age);
     // console.log('studentDB', localStorage.getItem('studentDB'));
