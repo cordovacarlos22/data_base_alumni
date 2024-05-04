@@ -4,12 +4,18 @@ import Register from '@/components/RegisterStudent';
 import Student from '@/components/StudenClass';
 import React, { useState } from 'react'
 
-
+/**
+ * The above function generates a random 4-digit number.
+ * @returns A random 4-digit number is being returned.
+ */
+const ramdomNumber = () => {
+  return Math.floor(1000 + Math.random() * 9000);
+}
 
 
 const EnrollStudent = () => {
 
-
+  let [id, setId] = useState(ramdomNumber());
   let [name, setName] = useState('');
   let [lastName, setLastName] = useState('');
   let [age, setAge] = useState('');
@@ -20,7 +26,8 @@ const EnrollStudent = () => {
       return;
     } else {
       // e.preventDefault();
-      let newStudent = new Student(name, lastName, age) // creates EnrollStudent instance
+      setId(ramdomNumber());
+      let newStudent = new Student(id,name, lastName, age) // creates EnrollStudent instance
       newStudent.enrollStudent();
       newStudent.alertStudentEnrollment();
       newStudent.getAllStudents();
