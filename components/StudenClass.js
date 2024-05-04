@@ -27,7 +27,10 @@ export default class Student {
     // console.log('studentDB', localStorage.getItem('studentDB'));
   }
 
+searchStudent(id){
+console.log(localStorage.getItem("students"));
 
+}
 
   alertStudentEnrollment() {
     alert(`Student ${this.name} has been register`)
@@ -47,6 +50,7 @@ export default class Student {
     this.grade.push(grade);
   }
 
+  
   // extra functions : 
   // Función para asignar calificaciones a un alumno
   addGrade(subject, grade) {
