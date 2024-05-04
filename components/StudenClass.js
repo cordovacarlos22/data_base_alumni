@@ -28,8 +28,14 @@ export default class Student {
   }
 
 searchStudent(id){
-console.log(localStorage.getItem("students"));
-
+let students = []
+students = JSON.parse(localStorage.getItem("students"))
+console.log(students);
+ for ( let i = 0; i < students.length; i++){
+ if (students[i].id == id){
+  console.log(students[i]); 
+ }
+ }
 }
 
   alertStudentEnrollment() {
