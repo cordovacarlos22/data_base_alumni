@@ -104,11 +104,7 @@ export default class Student {
 
 
   // extra functions : 
-  // Función para asignar calificaciones a un alumno
-  // addGrade(subject, grade) {
-  //   this.subjects.push(subject);
-  //   this.grades.push(grade);
-  // }
+  
 
   // Función para obtener el promedio de calificaciones de un alumno
   getAverageGrade() {
