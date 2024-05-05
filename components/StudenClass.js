@@ -87,10 +87,9 @@ export default class Student {
 
   addGrade(grade, subject, studentsId) {
     let students = JSON.parse(localStorage.getItem("students"));
-    console.log("add students", grade, subject, studentsId);
-    console.log("students", students[0].id);
+   
     for (let i = 0; i < students.length; i++) {
-      if (students[i].id == studentsId) {
+      if (students[i].id == studentsId[0].id) {
         // Verifica si la propiedad grades es un array
         console.log("add students", grade, subject, studentsId);
         console.log("students", students[0].id);
