@@ -36,7 +36,7 @@ export default class Student {
        
         userFound = JSON.parse(localStorage.getItem('userFound')) || [];
         if (userFound == false) {
-          userFound.push(students[i].id)
+          userFound.push(students[i])
           localStorage.setItem('userFound', JSON.stringify(userFound));
           // window.location.reload()
           console.log("class search by id ", userFound);
@@ -67,7 +67,7 @@ export default class Student {
   addSubject(subject, studentsId) {
     let students = JSON.parse(localStorage.getItem("students"));
     for (let i = 0; i < students.length; i++) {
-      if (students[i].id == studentsId) {
+      if (students[i].id == studentsId.id ) {
         // Verifica si la propiedad subject es un array
         if (Array.isArray(students[i].subjects)) {
           // Agrega la nueva materia al array existente
