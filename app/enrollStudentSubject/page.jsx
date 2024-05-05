@@ -65,7 +65,7 @@ const AddSubject = () => {
     alert("Subject added to " +  user[0].name + " " + user[0].lastName );
     setTimeout(() => {
       window.location.reload();
-    }, 2000);
+    }, 1000);
    
     console.log("foundStudent:", subjectFoundStudent); // Verifica si foundStudent tiene el valor esperado
 

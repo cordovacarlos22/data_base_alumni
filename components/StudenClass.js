@@ -65,9 +65,11 @@ export default class Student {
   }
 
   addSubject(subject, studentsId) {
+
+    // console.log("add subject ", studentsId[0].id)
     let students = JSON.parse(localStorage.getItem("students"));
     for (let i = 0; i < students.length; i++) {
-      if (students[i].id == studentsId.id ) {
+      if (students[i].id == studentsId[i].id ) {
         // Verifica si la propiedad subject es un array
         if (Array.isArray(students[i].subjects)) {
           // Agrega la nueva materia al array existente
