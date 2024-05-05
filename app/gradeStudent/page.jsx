@@ -11,15 +11,18 @@ const GradeStuden = () => {
   const [grade, setGrade] = useState('');
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('userFound'));
-    if (user) {
-      setUser(user);
-      console.log('test user ', user);
-      console.log("typeof", typeof user)
+    // Obtener los datos de subjects del almacenamiento local
+    const storedSubjects = JSON.parse(localStorage.getItem('userFound'));
+
+    if (storedSubjects) {
+      // Si hay datos almacenados, actualiza el estado con ellos
+      setSubjects(storedSubjects);
     }
   }, []);
 
- 
+
+
+
 
 
   const search = () => {
@@ -39,16 +42,21 @@ const GradeStuden = () => {
   const handleAddSubject = () => {
     let subject = new Student();
     subject.addGrade(grade, selectedSubject, user) //  => return student
-    // localStorage.removeItem('userFound');
-    // alert("Subject added to " +  user[0].name + " " + user[0].lastName );
-    // setTimeout(() => {
-    //   window.location.reload();
-    // }, 1000);
+    localStorage.removeItem('userFound');
+    alert("Subject added to " +  user[0].name + " " + user[0].lastName );
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
 
 
 
   };
 
+
+  const handleChange = (event) => {
+    // Actualizar el estado con el valor seleccionado
+    setSelectedSubject(event.target.value);
+  };
   return (
     <>
       <div>
@@ -85,7 +93,7 @@ const GradeStuden = () => {
                       id="subjects"
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       value={selectedSubject}
-                      onChange={e => setSelectedSubject(e.target.value)}
+                      onChange={handleChange}
                     >
                       <option value="">Choose a Subject</option>
                       {/* Mapear los datos de subjects para crear opciones */}
@@ -97,12 +105,12 @@ const GradeStuden = () => {
                         ))
                       ))}
                     </select>
-                    <input type="number" name="grade" id="grade"
-                      value={grade}
-                      onChange={e => setGrade(e.target.value)}
-                    />
-                  </form>
 
+                  </form>
+                  <input type="number" name="grade" id="grade"
+                    value={grade}
+                    onChange={e => setGrade(e.target.value)}
+                  />
                 </div>
               ))}
               <button className='bg-white text-blue-500 p-4 rounded-lg hover:text-blue-400' onClick={handleAddSubject} >
