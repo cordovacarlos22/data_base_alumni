@@ -85,33 +85,31 @@ export default class Student {
   }
 
 
-  addGrade(grade,subject,studentsId) {
+  addGrade(grade, subject, studentsId) {
     let students = JSON.parse(localStorage.getItem("students"));
+    console.log("add students", grade, subject, studentsId);
+    console.log("students", students[0].id);
     for (let i = 0; i < students.length; i++) {
-      if (students[i].id == studentsId ) {
-        // Verifica si la propiedad subject es un array
-        if (Array.isArray(students[i].grades)) {
-          // Agrega la nueva materia al array existente
-          students[i].grades.push({subject:subject,grade:grade});
-        } else {
-          // Crea un nuevo array con la materia existente y la nueva materia
-          students[i].grades = [students[i].grades, {subject:subject,grades:grades}];
-        }
+      if (students[i].id == studentsId) {
+        // Verifica si la propiedad grades es un array
+        console.log("add students", grade, subject, studentsId);
+        console.log("students", students[0].id);
+        // Corrige la referencia a la propiedad grades
+        students[i].grades.push({ grade: grade, subject: subject });
       }
     }
     // Guarda los cambios en el almacenamiento local
     localStorage.setItem("students", JSON.stringify(students));
-
-
   }
+
 
 
   // extra functions : 
   // Función para asignar calificaciones a un alumno
-  addGrade(subject, grade) {
-    this.subjects.push(subject);
-    this.grades.push(grade);
-  }
+  // addGrade(subject, grade) {
+  //   this.subjects.push(subject);
+  //   this.grades.push(grade);
+  // }
 
   // Función para obtener el promedio de calificaciones de un alumno
   getAverageGrade() {
