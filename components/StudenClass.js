@@ -85,8 +85,24 @@ export default class Student {
   }
 
 
-  addGrade(grade) {
-    this.grade.push(grade);
+  addGrade(grade,subject,studentsId) {
+    let students = JSON.parse(localStorage.getItem("students"));
+    for (let i = 0; i < students.length; i++) {
+      if (students[i].id == studentsId ) {
+        // Verifica si la propiedad subject es un array
+        if (Array.isArray(students[i].grades)) {
+          // Agrega la nueva materia al array existente
+          students[i].grades.push({subject:subject,grade:grade});
+        } else {
+          // Crea un nuevo array con la materia existente y la nueva materia
+          students[i].grades = [students[i].grades, {subject:subject,grades:grades}];
+        }
+      }
+    }
+    // Guarda los cambios en el almacenamiento local
+    localStorage.setItem("students", JSON.stringify(students));
+
+
   }
 
 
