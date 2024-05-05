@@ -20,7 +20,7 @@ export default class Student {
 
     let students = [];
     students = JSON.parse(localStorage.getItem('students')) || [];
-    students.push({ id: this.id, name: this.name, lastName: this.lastName, age: this.age });
+    students.push({ id: this.id, name: this.name, lastName: this.lastName, age: this.age, subjects: this.subjects, grades: this.grades});
     localStorage.setItem('students', JSON.stringify(students));
     // console.log('student registrado ' + this.name + " " + this.lastName + " " + this.age);
     // console.log('studentDB', localStorage.getItem('studentDB'));
@@ -36,11 +36,11 @@ export default class Student {
        
         userFound = JSON.parse(localStorage.getItem('userFound')) || [];
         if (userFound == false) {
-          userFound.push(students[i])
+          userFound.push(students[i].id)
           localStorage.setItem('userFound', JSON.stringify(userFound));
           // window.location.reload()
           console.log("class search by id ", userFound);
-          return userFound
+          return userFound;
         } else {
           alert('Student already exist')
           return userFound
@@ -64,9 +64,24 @@ export default class Student {
     console.log(students);
   }
 
-  addSubject(subject) {
-    this.subjects.push(subject);
+  addSubject(subject, studentsId) {
+    let students = JSON.parse(localStorage.getItem("students"));
+    for (let i = 0; i < students.length; i++) {
+      if (students[i].id == studentsId) {
+        // Verifica si la propiedad subject es un array
+        if (Array.isArray(students[i].subjects)) {
+          // Agrega la nueva materia al array existente
+          students[i].subjects.push(subject);
+        } else {
+          // Crea un nuevo array con la materia existente y la nueva materia
+          students[i].subject = [students[i].subjects, subject];
+        }
+      }
+    }
+    // Guarda los cambios en el almacenamiento local
+    localStorage.setItem("students", JSON.stringify(students));
   }
+
 
   addGrade(grade) {
     this.grade.push(grade);
