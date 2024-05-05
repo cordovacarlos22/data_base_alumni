@@ -6,8 +6,7 @@ firstName='carlos', lastName='cordova', age=25, subject=',math', and grade=10. T
 information. */
 
 export default class Student {
-  constructor(id, name, lastName, age, subjects = [], grades = []) 
-    {
+  constructor(id, name, lastName, age, subjects = [], grades = []) {
     this.id = id;
     this.name = name;
     this.lastName = lastName;
@@ -18,25 +17,42 @@ export default class Student {
 
   // method to  enroll a student 
   enrollStudent() {
-    
+
     let students = [];
     students = JSON.parse(localStorage.getItem('students')) || [];
-    students.push({id:this.id, name: this.name, lastName: this.lastName, age: this.age });
+    students.push({ id: this.id, name: this.name, lastName: this.lastName, age: this.age });
     localStorage.setItem('students', JSON.stringify(students));
     // console.log('student registrado ' + this.name + " " + this.lastName + " " + this.age);
     // console.log('studentDB', localStorage.getItem('studentDB'));
   }
 
-searchStudent(id){
-let students = []
-students = JSON.parse(localStorage.getItem("students"))
-console.log(students);
- for ( let i = 0; i < students.length; i++){
- if (students[i].id == id){
-  console.log(students[i]); 
- }
- }
-}
+  searchStudent(id) {
+    let students = []
+    let userFound = [];
+    students = JSON.parse(localStorage.getItem("students"))
+    // console.log(students);
+    for (let i = 0; i < students.length; i++) {
+      if (students[i].id == id) {
+       
+        userFound = JSON.parse(localStorage.getItem('userFound')) || [];
+        if (userFound == false) {
+          userFound.push(students[i])
+          localStorage.setItem('userFound', JSON.stringify(userFound));
+          // window.location.reload()
+          console.log("class search by id ", userFound);
+          return userFound
+        } else {
+          alert('Student already exist')
+          return userFound
+        }
+      }
+    }
+    if ( userFound == false) {
+      alert('Student not found')
+    }
+    
+    
+  }
 
   alertStudentEnrollment() {
     alert(`Student ${this.name} has been register`)
@@ -56,7 +72,7 @@ console.log(students);
     this.grade.push(grade);
   }
 
-  
+
   // extra functions : 
   // Función para asignar calificaciones a un alumno
   addGrade(subject, grade) {
