@@ -47,9 +47,6 @@ const GradeStuden = () => {
     setTimeout(() => {
       window.location.reload();
     }, 1000);
-
-
-
   };
 
 
@@ -79,7 +76,7 @@ const GradeStuden = () => {
         ) :
           (
             <>
-              <h1> User Found </h1>
+              {/* <h1> User Found </h1> */}
 
               {/* selecion una materia desde el local storage si no existe regresar la  no existe en la base de datos
               si si existe entonces dar el input de asignar nota a estudiante */}
@@ -95,7 +92,7 @@ const GradeStuden = () => {
                       value={selectedSubject}
                       onChange={handleChange}
                     >
-                      <option value="">Choose a Subject</option>
+                      <option value="">Choose a Subject to Grade</option>
                       {/* Mapear los datos de subjects para crear opciones */}
                       {subjects.map((subject) => (
                         subject.subjects.map((subjectName, index) => (
@@ -115,7 +112,7 @@ const GradeStuden = () => {
               ))}
               <button className='bg-white text-blue-500 p-4 rounded-lg hover:text-blue-400' onClick={handleAddSubject} >
 
-                <span>Search</span>
+                <span>Grade Student</span>
               </button>
             </>
           )

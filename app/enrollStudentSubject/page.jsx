@@ -99,8 +99,8 @@ const AddSubject = () => {
               {user.map((student) => (
                 <div key={student.id}>
                   <h1>Welcome {student.name} {student.lastName}</h1>
-                  <form class="max-w-sm mx-auto">
-                    <label htmlForfor="subjects" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
+                  <form className="max-w-sm mx-auto">
+                    <label htmlFor="subjects" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
                     <select
 
                       // id="subjects"
