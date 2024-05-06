@@ -42,7 +42,7 @@ export default class Student {
           console.log("class search by id ", userFound);
           return userFound;
         } else {
-          alert('Student already exist')
+          alert('Student already Found')
           return userFound
         }
       }
@@ -101,6 +101,49 @@ export default class Student {
     localStorage.setItem("students", JSON.stringify(students));
   }
 
+  searchStudentByName(name) {
+    let students = []
+    let userFound = [];
+    students = JSON.parse(localStorage.getItem("students")) || [];
+    // console.log(students);
+    for (let i = 0; i < students.length; i++) {
+      if (students[i].name == name) {
+        userFound = JSON.parse(localStorage.getItem('userFound')) || [];
+        userFound.push(students[i])
+        localStorage.setItem('userFound', JSON.stringify(userFound));
+      }
+    }
+
+    
+    if (userFound == false) {
+      alert('Student not found')
+    } else {
+      return userFound;
+    }
+    
+  }
+
+  searchStudentByLastName(lastName) {
+    let students = []
+    let userFound = [];
+    students = JSON.parse(localStorage.getItem("students")) || [];
+    // console.log(students);
+    for (let i = 0; i < students.length; i++) {
+      if (students[i].lastName == lastName) {
+        userFound = JSON.parse(localStorage.getItem('userFound')) || [];
+        userFound.push(students[i])
+        localStorage.setItem('userFound', JSON.stringify(userFound));
+      }
+    }
+
+
+    if (userFound == false) {
+      alert('Student not found')
+    } else {
+      return userFound;
+    }
+
+  }
 
 
   // extra functions : 
