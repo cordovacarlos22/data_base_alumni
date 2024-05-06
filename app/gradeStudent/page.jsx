@@ -18,7 +18,7 @@ const GradeStuden = () => {
       // Si hay datos almacenados, actualiza el estado con ellos
       setSubjects(storedSubjects);
     }
-  }, []);
+  }, [user]);
 
 
 
