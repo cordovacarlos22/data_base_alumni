@@ -16,6 +16,14 @@ const Nav = () => {
     {
       name: 'Grade Student',
       link: '/gradeStudent'
+    },
+    {
+      name: 'Find Student By Name',
+      link: '/foundstudentbyname'
+    },
+    {
+      name: 'Find Student By  Last Name',
+      link: '/foundstudentbylastname'
     }
 
   ]
