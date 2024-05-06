@@ -69,7 +69,7 @@ export default class Student {
     // console.log("add subject ", studentsId[0].id)
     let students = JSON.parse(localStorage.getItem("students"));
     for (let i = 0; i < students.length; i++) {
-      if (students[i].id == studentsId[i].id ) {
+      if (students[i].id == studentsId[0].id ) {
         // Verifica si la propiedad subject es un array
         if (Array.isArray(students[i].subjects)) {
           // Agrega la nueva materia al array existente
@@ -94,7 +94,7 @@ export default class Student {
         console.log("add students", grade, subject, studentsId);
         console.log("students", students[0].id);
         // Corrige la referencia a la propiedad grades
-        students[i].grades.push({ grade: grade, subject: subject });
+        students[i].grades.push({ grade: parseInt(grade), subject: subject });
       }
     }
     // Guarda los cambios en el almacenamiento local
