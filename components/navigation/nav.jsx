@@ -28,13 +28,13 @@ const Nav = () => {
 
   ]
   return (
-    <header className='bg-blue-500 w-80  h-screen flex flex-col text-white' >
-      <h1 className='text-xl  font-bold text-white mx-auto my-4'>Student Dashboard </h1>
-      <nav className='  font-semibold p-4 '>
-        <ul>
+    <header className='bg-blue-500  h-screen  w-80 z-10 text-white' >
+      <h1 className='text-xl  font-bold text-white  text-center'>Student Dashboard </h1>
+      <nav className=' h-full w-full  font-semibold p-4  flex   justify-center '>
+        <ul className=' text-center'>
           {navLinkList.map((link) => {
               return (
-                <li key={link.name}>
+                <li  className="hover:text-gray-200 w-1/2 hover:border-gray-200 border-b-2  m-4" key={link.name}>
                   <Link href={link.link}>
                     {link.name}
                   </Link>

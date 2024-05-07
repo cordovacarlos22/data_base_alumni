@@ -17,6 +17,7 @@ const GradeStuden = () => {
     if (storedSubjects) {
       // Si hay datos almacenados, actualiza el estado con ellos
       setSubjects(storedSubjects);
+      console.log(subjects);
     }
   }, [user]);
 
@@ -56,31 +57,26 @@ const GradeStuden = () => {
   };
   return (
     <>
-      <div>
+      <div className='flex flex-col  justify-center items-center  w-screen'>
 
         {user == undefined || user == false ? (
-          <>
-            <h1>Welcome please search a Student</h1>
-            <div>
-              <h1>AddSubject - Working on it....</h1>
+          <div className=' flex flex-col'>
+            <h1>Welcome please search a Student to grade them</h1>
+            <div className='flex flex-col gap-4'>
+              {/* <h1>AddSubject - Working on it....</h1> */}
               <label htmlFor="studentSearch">
-                Student Search:
-                <input required placeholder="Search by ID" id="studentSearch" name="studentSearch" type="text" value={id} onChange={e => setId(e.target.value)} />
+                 Search Student:
+                <input className='rounded m-4 p-2 bg-blue-100' required placeholder="Search by ID" id="studentSearch" name="studentSearch" type="text" value={id} onChange={e => setId(e.target.value)} />
               </label>
-              <button className='bg-white text-blue-500 p-4 rounded-lg hover:text-blue-400' onClick={search} >
+              <button className='text-white bg-blue-500 hover:bg-blue-400 p-4 rounded-lg hover:text-gray-200' onClick={search} >
 
                 <span>Search</span>
               </button>
             </div>
-          </>
+          </div>
         ) :
           (
             <>
-              {/* <h1> User Found </h1> */}
-
-              {/* selecion una materia desde el local storage si no existe regresar la  no existe en la base de datos
-              si si existe entonces dar el input de asignar nota a estudiante */}
-
               {user.map((student) => (
                 <div key={student.id}>
                   <h1>Welcome {student.name} {student.lastName}</h1>
@@ -93,16 +89,19 @@ const GradeStuden = () => {
                       onChange={handleChange}
                     >
                       <option value="">Choose a Subject to Grade</option>
-                      {/* Mapear los datos de subjects para crear opciones */}
-                      {subjects.map((subject) => (
-                        subject.subjects.map((subjectName, index) => (
-                          <option key={`${subject.id}-${index}`} value={subjectName}>
-                            {subjectName}
-                          </option>
+                      {/* Map the subjects data to create options */}
+                      {subjects.subjects == undefined || subjects.subjects == false ? (
+                        <option value="" disabled> No Subjects Found</option>
+                      ) : (
+                        subjects.map((subject) => (
+                          subject.subjects.map((subjectName, index) => (
+                            <option key={`${subject.id}-${index}`} value={subjectName}>
+                              {subjectName}
+                            </option>
+                          ))
                         ))
-                      ))}
+                      )}
                     </select>
-
                   </form>
                   <input type="number" name="grade" id="grade"
                     value={grade}
@@ -110,11 +109,11 @@ const GradeStuden = () => {
                   />
                 </div>
               ))}
-              <button className='bg-white text-blue-500 p-4 rounded-lg hover:text-blue-400' onClick={handleAddSubject} >
-
+              <button className='bg-blue-400 text-white p-4 rounded-lg' onClick={handleAddSubject} >
                 <span>Grade Student</span>
               </button>
             </>
+
           )
         }
       </div>

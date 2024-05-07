@@ -14,20 +14,27 @@ const AllStudents = () => {
   }, []);
 
   return (
-    <div className='main-container '>
+    <div className='main-container flex flex-col justify-center items-center  m-4'>
 
 
-      <section className=''>
-        <h1>Student List:</h1>
+      {items == undefined || items == false? (
+        <>
+          <h1 className='text-red-500'>No Student in the DATA BASE !!! </h1>
+          {/* <span className='text-red-500'>please Add Students to DB</span> */}
+        </>
+      ):
+        (
+          <section className=''>
+        <h1 className='text-blue-500'>Student List:</h1>
 
 
 
-        <div className="relative overflow-x-auto">
-          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <div className="relative overflow-x-auto rounded-lg ">
+          <table className="w-full  text-sm text-center rtl:text-center text-gray-500 dark:text-gray-400  ">
             <thead className="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
               <tr>
-                <th scope="col" className="px-6 py-3rounded-l-s-lg">
-                  id
+                <th scope="col" className="px-6 py-3 ">
+                  Students id
                 </th>
                 <th scope="col" className="px-6 py-3 ">
                   name
@@ -35,14 +42,14 @@ const AllStudents = () => {
                 <th scope="col" className="px-6 py-3">
                   Last Name
                 </th>
-                <th scope="col" className="px-6 py-3 rounded-e-lg">
+                <th scope="col" className="px-6 py-3 ">
                   age
                 </th>
               </tr>
             </thead>
             <tbody>
               {items.map((student) => (
-                <tr className="bg-white dark:bg-gray-800" key={student.id}>
+                <tr className="bg-white dark:bg-gray-800 " key={student.id}>
                   <td>{student.id}</td>
                   <td>{student.name}</td>
                   <td>{student.lastName}</td>
@@ -54,7 +61,7 @@ const AllStudents = () => {
             <tfoot>
               <tr className="font-semibold text-gray-900 dark:text-white">
                 <th scope="row" className="px-6 py-3 text-base">
-                  STUDENTS
+                 Total Register Students : 
                 </th>
                 <td className="px-6 py-3">
 
@@ -65,7 +72,8 @@ const AllStudents = () => {
             </tfoot>
           </table>
         </div>
-      </section>
+      </section >
+      )}
 
 
 
