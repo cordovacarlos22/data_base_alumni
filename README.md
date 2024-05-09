@@ -1,31 +1,82 @@
-Proyecto: Base de datos de alumnos
+# Project: Student database with Next.js
 
-Descripción
-Crearán un pequeño proyecto con html, css y js con el cual podrán gestionar a los alumnos de una clase, así como sus calificaciones y sacar datos importantes sobre su performance.
+## Description
 
-Requisitos
-1.- Crear una clase alumno, la cual debe incluir:
-Nombre
-Apellidos
-Edad
-Materias inscritas
-Calificaciones
-(Esta es la clase base, si quieren agregarle mas datos son libres de hacerla tan completa como quieran) (listo)
+This project uses Next.js to create a web application that manages the students in a class, including their personal data, enrolled subjects, grades and various functionalities to analyze their academic performance.
 
-2.- Alta de alumnos
-Una vez creada la clase desde su sitio, deberán dar de alta alumnos, por defecto lo único que deben pedir como requisito al inicio es nombre, apellidos, edad. (listo)
+## Requirements
 
-3.- Después deberas crear funciones y vistas que les ayuden a hacer lo siguiente:
-Inscribir un alumno a una clase.
-Asignarle sus calificaciones.
-Crear grupos y asignarle alumnos (Usen estructuras de datos).
+### 1. Student Class
 
-4.- Ya que tengan sus grupos con alumnos, deberán crear e implementar las siguientes funciones:
-Buscar por nombre.
-Buscar por apellido.
-Obtener promedio de un alumno.
-Obtener promedio del grupo.
-Obtener lista de alumnos ordenados ascendente y descendente por calificación.
-Con los datos almacenados en la clase, deben agregar otro ordenamiento o búsqueda bajo el parámetro que quieran (Este es el punto extra).
+A class `Student` must be created that contains the following attributes:
+-Name
 
-5.- Preferentemente todo guarden en LocalStorage para que puedan tener persistencia de datos (Opcional x2)
+- Surnames
+- Age
+- Registered subjects
+- Ratings
+
+### 2. Registration of students
+
+The application must allow new students to be registered, requesting at least first name, last name and age.
+
+### 3. Functions and views
+
+- **Enroll a student in a class:** Allows you to assign subjects to a student.
+- **Assign grades:** Allows you to record a student's grades.
+- **Create groups and assign students:** Use data structures to organize students into groups.
+
+### 4. Analysis functions
+
+- **Search by first and last name:** Allows you to find students using their first or last name.
+- **Get a student's average:** Calculate the average of a student's grades.
+- **Get group average:** Calculate the average grades of a group of students.
+- **Get sorted list of students:** Allows you to sort the list of students in ascending or descending order according to their grades.
+- **Extra functionality:** Implement another type of sorting or search as necessary.
+
+### 5. Optional: Local Storage
+
+It is suggested that you use LocalStorage to maintain data persistence and ensure that student information is preserved between sessions.
+
+## Project execution
+
+1. Clone this repository to your local machine.
+2. Open a terminal and navigate to the project folder.
+3. Run the following command to install the dependencies:
+
+## Installation
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/cordovacarlos22/data_base_alumni
+```
+
+Go to the project directory
+
+```bash
+  cd data_base_alumni
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run dev
+```
+
+## Authors
+
+- [@carloscordova.dev](https://github.com/cordovacarlos22)
+
+## Colaborators
+
+- [@Erick Ponce](https://github.com/ErickPonceLIV)
+- [@Dulce Madrigal](https://github.com/ErickPonceLIV)
