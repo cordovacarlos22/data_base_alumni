@@ -60,7 +60,7 @@ const GradeStuden = () => {
       <div className='flex flex-col  justify-center items-center  w-screen'>
 
         {user == undefined || user == false ? (
-          <div className=' flex flex-col'>
+          <div className=' flex flex-col m-4'>
             <h1>Welcome please search a Student to grade them</h1>
             <div className='flex flex-col gap-4'>
               {/* <h1>AddSubject - Working on it....</h1> */}

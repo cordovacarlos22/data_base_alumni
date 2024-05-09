@@ -77,22 +77,22 @@ const AddSubject = () => {
 
   return (
     <>
-      <div>
+      <div className='flex flex-col  justify-center items-center  w-screen'>
 
         {user == undefined || user == false ? (
-          <>
+          <div className=' flex flex-col m-4'>
             <h1>Welcome please search a Student</h1>
-            <div>
+            <div className='flex flex-col gap-4'>
               <h1>AddSubject - Working on it....</h1>
               <label htmlFor="studentSearch">
                 Student Search:
-                <input required placeholder="Search by ID" id="studentSearch" name="studentSearch" type="text" value={id} onChange={e => setId(e.target.value)} />
+                <input className='rounded m-4 p-2 bg-blue-100'  required placeholder="Search by ID" id="studentSearch" name="studentSearch" type="text" value={id} onChange={e => setId(e.target.value)} />
               </label>
-              <button className='bg-white text-blue-500 p-4 rounded-lg hover:text-blue-400' onClick={search}>
+              <button className='text-white bg-blue-500 hover:bg-blue-400 p-4 rounded-lg hover:text-gray-200' onClick={search}>
                 <span>Search</span>
               </button>
             </div>
-          </>
+          </div>
         ) :
           (
             <>
