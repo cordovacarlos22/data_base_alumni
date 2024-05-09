@@ -23,14 +23,14 @@ const FindByName = () => {
   };
 
   return (
-    <div>
+    <div className='flex flex-col justify-center items-center m-4 w-full'>
       <h1>Welcome, please search for a student by name</h1>
-      <div>
+      <div className='flex flex-col  gap-4'>
         <label htmlFor="studentSearch">
           Student Search:
-          <input required placeholder="Search by Name" id="studentSearch" name="studentSearch" type="text" value={name} onChange={e => setName(e.target.value)} />
+          <input className='bg-blue-200  rounded-sm p-2' required placeholder="Search by Name" id="studentSearch" name="studentSearch" type="text" value={name} onChange={e => setName(e.target.value)} />
         </label>
-        <button className='bg-white text-blue-500 p-4 rounded-lg hover:text-blue-400' onClick={search}>
+        <button className='text-white bg-blue-500 hover:bg-blue-400 p-4 rounded-lg hover:text-gray-200' onClick={search}>
           <span>Search</span>
         </button>
       </div>
@@ -76,7 +76,7 @@ const FindByName = () => {
             </tfoot>
           </table>
 
-          <button className='border bg-red-500 text-white ' onClick={handleCancel}>exit</button>
+          <button className='border bg-red-500 text-white p-2 rounded-xl ' onClick={handleCancel}>exit</button>
         </div>
       )}
     </div>
