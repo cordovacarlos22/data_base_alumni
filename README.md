@@ -2,7 +2,7 @@
 
 ## Description
 
-This project uses Next.js to create a web application that manages the students in a class, including their personal data, enrolled subjects, grades and various functionalities to analyze their academic performance.
+This project uses Next.js to create a web application that manages the students in a class, including their personal data, enrolled subjects, grades and various functionalities to analyze their academic performance. also this project help pratice OOP paradigm, data structure and algorithms.
 
 ## Requirements
 
